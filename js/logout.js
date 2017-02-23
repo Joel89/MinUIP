@@ -58,6 +58,10 @@ function GoBackToUserIndexPage(CredentialsNumber) {
     {
         window.location = "../Customer with account pages/LoginSuccess.html";
     }
+
+    else{
+        window.location = "../Customer with account pages/LoginSuccess.html";
+    }
 }
 /*--------------------------------------------------------------------------------------------------------*/
 

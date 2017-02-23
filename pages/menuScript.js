@@ -46,7 +46,7 @@ function getTheInventoryDatabase() {
 function printOutTheMenu(beers)  {
     /*creates dynamically so many divs as the number of elements in beers. */
 
-    for (i = 0; i<beers.length; i++) {
+    for (var i = 0; i<beers.length; i++) {
 
         var newDiv = document.createElement("div");
 
@@ -55,7 +55,13 @@ function printOutTheMenu(beers)  {
 
         /*Create a paragraph element to hold the data from the database.*/
         var paragraph = document.createElement("p");
-
+        /*
+        var img = document.createElement("img");
+        img.setAttribute("src", "../css/Drag_and_Drop.png");
+        img.setAttribute("width", "50");
+        img.setAttribute("height", "50");
+        *
+        *
         /* Create some breaking point so every sentence comes into a new row. Can't use a element
          * more than once therefore the the need of many break. */
         var br = document.createElement("br");
