@@ -3,16 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta content='width=device-width, initial-scale=1' name='viewport'>
-    <link rel="stylesheet" href="../css/eventsStyle.cssStyle.css">
+    <link rel="stylesheet" href="../css/eventsStyle.css">
     <link rel="stylesheet" href="../css/style.css">
+
     <script src="../js/jquery.js"></script>
-    <script src="../js/menuScript.js"></script>
+    <script src="../js/switchLanguages.js"></script>
     <title>Welcome to The Flying Dutchman</title>
     <link href="https://fonts.googleapis.com/css?family=Pontano+Sans" rel="stylesheet">
 </head>
 <body>
 
+<script>
+    docLoaded(indexPageLoaded);
+</script>
+
 <!-- Here begins the header section. -->
+<div>
+    <!--Buttons to switch languages -->
+    <input type="image" src="../img/swedishFlag.png" name="swedishFlag" class="translate" id="sv" height="35px"; width="50px";/>
+    <input type="image" src="../img/englishFlag.JPG" name="englishFlag" class="translate" id="en" height="35px"; width="50px";/>
+</div>
+
 <div id="nav-header">
     <div class="square2">
         <h1 class="header-text">THE FLYING DUTCHMAN</h1>
@@ -24,11 +35,11 @@
 <div id="nav-main">
     <nav>
         <ul>
-            <li><a href="../index.html">START</a></li>
-            <li><a href="menu.html">MENU</a></li>
-            <li><a href="about.html">ABOUT</a></li>
-            <li><a class="active" href="events.html">EVENTS</a></li>
-            <li><a href="logIn.html">LOG IN</a></li>
+            <li><a href="../index.html"  class="lang" key="start" >START</a></li>
+            <li><a class="lang" href="menu.html" key="menu" >MENU</a></li>
+            <li><a href="about2.html"  class="lang" key="about" >ABOUT</a></li>
+            <li><a href="events.html"  class="active lang" key="events" >EVENTS</a></li>
+            <li><a href="logIn.html"  class="lang" key="logIn" >LOG IN</a></li>
         </ul>
     </nav>
 

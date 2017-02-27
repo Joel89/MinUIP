@@ -49,16 +49,47 @@ function printOutTheMenu(beers)  {
 
     for (var i = 0; i<beers.length; i++) {
 
-        /*Create a paragraph element to hold the data from the database.*/
+        /*Create two paragraph elements to hold the data from the database.Can't use a element
+          more than once therefore the the need of two paragraph. */
         var paragraph = document.createElement("p");
+        var paragraph1 = document.createElement("p");
 
         /* Give the new div a class so we can manipulate the div in the css file. */
         paragraph.className = "dynamicallyParagraphClass";
+        paragraph1.className = "dynamicallyParagraphClass";
+
 
         /* Create some breaking point so every sentence comes into a new row. Can't use a element
          * more than once therefore the the need of many break. */
         var br = document.createElement("br");
         var br2 = document.createElement("br");
+        var br3 = document.createElement("br");
+        var br4 = document.createElement("br");
+        var br5 = document.createElement("br");
+        var br6 = document.createElement("br");
+
+        /* Attached to the button Show All. */
+        if(beers[i].namn != "")
+        {
+            /* Get the data from the database and create element from them.*/
+
+            var nodeName1 = document.createTextNode(beers[i].namn);
+            var beerId1 = document.createTextNode("Drink Id:" + beers[i].beer_id);
+            var Amount1 = document.createTextNode("Amount:" + beers[i].count);
+            var price1 = document.createTextNode("Price:" + beers[i].price);
+
+            /* Set the data to the paragraph node. Using the break point to get the data on a new row.*/
+            paragraph1.appendChild(nodeName1);
+            paragraph1.appendChild(br3);
+            paragraph1.appendChild(beerId1);
+            paragraph1.appendChild(br4);
+            paragraph1.appendChild(Amount1);
+            paragraph1.appendChild(br5);
+            paragraph1.appendChild(price1);
+
+
+            $('#allSection').append(paragraph1);
+        }
 
         /* Add only the elements with name (The current database has a few element without names)
          * and elements that have more than 0 in the inventory.
@@ -69,6 +100,7 @@ function printOutTheMenu(beers)  {
             var nodeName = document.createTextNode(beers[i].namn);
             var beerId = document.createTextNode("Drink Id:" + beers[i].beer_id);
             var Amount = document.createTextNode("Amount:" + beers[i].count);
+            var price = document.createTextNode("Price:" + beers[i].price);
 
             /* Set the data to the paragraph node. Using the break point to get the data on a new row.*/
             paragraph.appendChild(nodeName);
@@ -76,6 +108,8 @@ function printOutTheMenu(beers)  {
             paragraph.appendChild(beerId);
             paragraph.appendChild(br2);
             paragraph.appendChild(Amount);
+            paragraph.appendChild(br6);
+            paragraph.appendChild(price);
 
 
             $('#wellStockedSection').append(paragraph);
@@ -87,6 +121,7 @@ function printOutTheMenu(beers)  {
             var nodeName = document.createTextNode(beers[i].namn);
             var beerId = document.createTextNode("Drink Id:" + beers[i].beer_id);
             var Amount = document.createTextNode("Amount:" + beers[i].count);
+            var price = document.createTextNode("Price:" + beers[i].price);
 
             /* Set the data to the paragraph node. Using the break point to get the data on a new row.*/
             paragraph.appendChild(nodeName);
@@ -94,6 +129,8 @@ function printOutTheMenu(beers)  {
             paragraph.appendChild(beerId);
             paragraph.appendChild(br2);
             paragraph.appendChild(Amount);
+            paragraph.appendChild(br6);
+            paragraph.appendChild(price);
 
 
             $('#fewSection').append(paragraph);
@@ -105,6 +142,7 @@ function printOutTheMenu(beers)  {
             var nodeName = document.createTextNode(beers[i].namn);
             var beerId = document.createTextNode("Drink Id:" + beers[i].beer_id);
             var Amount = document.createTextNode("Amount:" + beers[i].count);
+            var price = document.createTextNode("Price:" + beers[i].price);
 
             /* Set the data to the paragraph node. Using the break point to get the data on a new row.*/
             paragraph.appendChild(nodeName);
@@ -112,6 +150,8 @@ function printOutTheMenu(beers)  {
             paragraph.appendChild(beerId);
             paragraph.appendChild(br2);
             paragraph.appendChild(Amount);
+            paragraph.appendChild(br6);
+            paragraph.appendChild(price);
 
             $('#emptySection').append(paragraph);
         }
@@ -120,7 +160,8 @@ function printOutTheMenu(beers)  {
 
 /*------------------------------------------------------------------------------------------------------------*/
 
-/*------------Functions to dropboxs---------------------------------------------------------------------------*/
+/*------------Functions to Hide/show buttons---------------------------------------------------------------------------*/
+/* From https://www.youtube.com/watch?v=tFSsKSQB-CI&t=393s */
 
 function showAndHideWellStocked() {
     $('#showWell-Stocked').click(function ()
@@ -188,5 +229,43 @@ function showAndHideAll() {
 
 /*------------------------------------------------------------------------------------------------------------*/
 
+/*------------Functions to send the new order to the database-------------------------------------------------*/
+/* https://www.youtube.com/watch?v=5nL7X1UMWsc */
+
+function sendOrder() {
+
+    var beer_id = document.order.beer_id.value;
+    var amount = document.order.amount.value;
+    var price = document.order.price.value;
+
+    var Username = localStorage.TempUser;
+    var link = 'http://pub.jamaica-inn.net/fpdb/api.php?username='+Username+'&password='+Username+'&action=inventory_append';
+
+    if(beer_id=="" || price == "")
+    {
+        alert("Need to fill in drink id or price");
+    }
+    else
+    {
+        var order = {
+            beer_id: beer_id,
+            amount: amount,
+            price: price
+        }
+
+        $.ajax({
+            type:'POST',
+            url:link,
+            data: order,
+            success: function () {
+                alert("Your order was successful!");
+            },
+            error: function () {
+                alert("error sending order!");
+            }
+        });
+    }
+};
+/*------------------------------------------------------------------------------------------------------------*/
 
 

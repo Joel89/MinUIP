@@ -14,10 +14,10 @@ html,body
     background-color: floralwhite;
     border: none;
     color: #000;
-    padding: 10px 40px;
+    padding: 0.5% 4%;
     text-align: center;
     text-decoration: none;
-    font-size: 30px;
+    font-size: 200%;
     font-family: 'Pontano Sans', sans-serif;
     font-weight: lighter;
     -webkit-box-shadow: 10px 13px 39px 0px rgba(0,0,0,0.75);
@@ -25,18 +25,19 @@ html,body
     box-shadow: 10px 13px 39px 0px rgba(0,0,0,0.75);
 
     position:fixed;
-    top:90%;
-    margin-top: 10px;
+    right:2%;
+    top:92%;
+
 }
 
-#buttonOrder{
+#buttonOrder2{
     background-color: floralwhite;
     border: none;
     color: #000;
-    padding: 10px 40px;
+    padding: 0.5% 4%;
     text-align: center;
     text-decoration: none;
-    font-size: 30px;
+    font-size: 200%;
     font-family: 'Pontano Sans', sans-serif;
     font-weight: lighter;
     -webkit-box-shadow: 10px 13px 39px 0px rgba(0,0,0,0.75);
@@ -44,26 +45,126 @@ html,body
     box-shadow: 10px 13px 39px 0px rgba(0,0,0,0.75);
 
     position:fixed;
-    right:8%;
-    top:90%;
-    margin-top: 10px;
+    right:17%;
+    top:92%;
+
 }
+
+#regretOrderButton {
+    background-color: #111; /* Green */
+    font-family: 'Pontano Sans', sans-serif;
+    border: none;
+    color: blue;
+    border: 1px solid whitesmoke;
+    padding: 16px 33px;
+    text-align: center;
+    display: inline-block;
+    font-size: 26px;
+    margin-top: 20px;
+    margin-left: 45px;
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+
+}
+
+#buttonPurchase {
+    background-color: whitesmoke; /* Green */
+    font-family: 'Pontano Sans', sans-serif;
+    border: none;
+    color: blue;
+    border: 1px solid whitesmoke;
+    padding: 15px 33px;
+    text-align: center;
+    display: inline-block;
+    font-size: 26px;
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+}
+
 /*--------------------------------------------------------------------*/
+
+/* ------------- LINKS -----------*/
+/* unvisited link */
+a:link {
+    color: #111;
+    text-decoration: none;
+    font-family: 'Pontano Sans', sans-serif;
+}
+
+/* visited link */
+a:visited {
+    color: #111;
+    font-family: 'Pontano Sans', sans-serif;
+}
+
+/*Nytt */
+.block {
+    float:left;
+    width: 150px;
+    background-color: lightgreen;
+    padding: 10px;
+    margin:10px;
+}
+
+li {
+    list-style: none;
+}
+
+
+
+
+
 
 /*----------------The Menu from the database------------------------------- */
 
+/* ----------------------------Show the menu from the database functions------------------------------------------*/
+
+
+
+/* The Drinks*/
+.divdrag {
+    border: 1px solid black;
+    font-family: 'Pontano Sans', sans-serif;
+    color: #111111;
+    margin:20%;
+    width: 20%;
+    height: 100%;
+    float:left;
+    text-align: center;
+    background-color: whitesmoke;
+    font-size: 20%;
+    display:inline-block;
+    line-height: 20px;
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+}
+
+/* Tar float så att man får den dynamiska listan efter varandra och sätter en border runt.*/
+#parentDiv {
+    width: 70%;
+}
+#childDiv{
+    float:left;
+
+}
+
+/*
 #parentDiv {
     width: 60%;
-}
+}*/
+
 
 .dynamicallyDivClass {
     border: 1px solid black;
-    margin:10px;
-    width: 250px;
+    margin:1%;
+    width: 30%;
     text-align: center;
     background-color: antiquewhite;
-    font-family: cursive;
-    font-size: 18px;
+    font-family: 'Pontano Sans', sans-serif;
+    font-size: 100%;
     /* Inline-block so dynamically divs are coming after each other. */
     display:inline-block;
 }
@@ -71,17 +172,49 @@ html,body
 /*--------------------------------------------------------------------*/
 
 /*----------------The Orderbox---------------------------------------------- */
-#orderlistBox{
+/*#orderlistBox{
     position:fixed;
     right:8%;
     top:40%;
-    width:360px;
+    width:360px;*/
     /*Make so it can scroll.*/
+    /*
     overflow: auto;
     height: 50%;
     background-color: aliceblue;
+}*/
+
+.sectionDrinks{
+    margin-left: 50px;
 }
 
+#drinks {
+    width: 20px;
+    height: 250px;
+    padding: 10px;
+    border: 1px solid #aaaaaa;
+    text-align: center;
+    font-family: 'Pontano Sans', sans-serif;
+}
+
+
+#orderlistBox{
+    width:30%;
+    overflow: auto;
+    height: 50%;
+    background-color: whitesmoke;
+    float:right;
+    margin-right: 1%;
+    text-align: justify;
+    margin-top: 1%;
+    font-family: 'Pontano Sans', sans-serif;
+    position:fixed;
+    right: 1%;
+    top: 39%;
+
+}
+
+/*
 #orderlistBoxText h2{
     text-align:center;
     font-size: 34px;
@@ -89,8 +222,17 @@ html,body
     font-family: cursive;
     text-decoration: underline;
     padding-top: 0px;
-}
+}*/
+/*Orderlistbox text style*/
+#orderlistBoxText {
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: underline;
+    font-family: 'Pontano Sans', sans-serif;
+    color: #111111;
 
+}
 
 /*-------------------------------------------------------------------------------------------------------------- */
 

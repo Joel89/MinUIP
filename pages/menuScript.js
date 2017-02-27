@@ -14,10 +14,9 @@ function docLoaded(fn) {
 }
 /* Function that start the page and calls the neccessary functions. */
 function indexPageLoaded() {
-
+    language();
     getTheInventoryDatabase();
 }
-
 
 /* Function that retrieves all alcohol products from the database. The function use
  the admin name ervtod to get access to the database and the function inventory_get to
@@ -36,9 +35,6 @@ function getTheInventoryDatabase() {
     });
 }
 
-
-
-
 /*
  The function is getting the inventory database and adding it to the page.
  Parameter: The inventory database which is in JSON format.
@@ -55,13 +51,17 @@ function printOutTheMenu(beers)  {
 
         /*Create a paragraph element to hold the data from the database.*/
         var paragraph = document.createElement("p");
+
+        /* Give the paragraph a class so we can switch languages. */
+        paragraph.className = "lang";
+
         /*
         var img = document.createElement("img");
         img.setAttribute("src", "../css/Drag_and_Drop.png");
         img.setAttribute("width", "50");
         img.setAttribute("height", "50");
-        *
-        *
+        */
+
         /* Create some breaking point so every sentence comes into a new row. Can't use a element
          * more than once therefore the the need of many break. */
         var br = document.createElement("br");
@@ -107,11 +107,13 @@ function printOutTheMenu(beers)  {
 
 
                     /* Second section: Save the data so we can print out the total price.*/
+
                     var context1 = $(droppedItem).find("p:eq(0)").text();
 
-                    console.log("Test with .text() : " + context1);
+                    /*console.log("Test with .text() : " + context1);
                     var context2 = $(droppedItem).find('p:eq(0)').html();
-                    console.log("Test with .html() : " + context2);
+                    console.log("Test with .html() : " + context2); */
+
                     var name = context1.split('Price')[0];
                     console.log("Name:" + name);
                     nameDrinksArray(name);
@@ -142,7 +144,7 @@ function printOutTheMenu(beers)  {
 var nameArray = [];
 /* Function that saves all the drinks names that is ordered.*/
 function nameDrinksArray(name) {
-    /*Pus is adding a element to the array. */
+    /*Push is adding a element to the array. */
     nameArray.push(name);
     /* Need to use JSON.stringify because localStorage only handling string and not arrays.*/
     localStorage.setItem("drinksArray", JSON.stringify(nameArray));}

@@ -33,7 +33,7 @@
         <ul>
             <li><a href="AdminLogIn.html">MY PROFILE</a></li>
             <li><a class="active" href="inventory.html">INVENTORY</a></li>
-            <li><a href="#">TODO</a></li>
+            <li><a href="requests.html">BARTENDER</a></li>
             <li><a href="AdminLogOut.html">LOG OUT</a></li>
         </ul>
     </nav>
@@ -45,7 +45,7 @@
 </script>
 
     <div class="title">
-        <h1>The Inventory</h1>
+        <h1> The Inventory</h1>
         <hr>
     </div>
 
@@ -92,14 +92,38 @@
         <div id="dataEmpty">
             <div id="emptySection"> </div>
         </div>
-        <div id="dataAll"> This is some data that can be hid</div>
+        <div id="dataAll">
+            <div id="allSection"> </div>
+        </div>
     </div>
+
     <div class="clear"></div>
 
     <div class="title">
         <h1>Order to the inventory</h1>
         <hr>
     </div>
+
+    <div id="orderSection">
+        <form name="order" method="post">
+
+            <label for="FormTextName">Name:</label>
+            <input class="FormText" id="FormTextName" type="text" name="name">
+
+            <label for="FormTextBeerID">Drink ID:</label>
+            <input class="FormText" id="FormTextBeerID" type="text" name="beer_id">
+
+            <label for="FormTextAmount">Amount:</label>
+            <input class="FormText" id="FormTextAmount" type="text" name="amount">
+
+            <label for="FormTextPrice">Price:</label>
+            <input class="FormText" id="FormTextPrice" type="text" name="price">
+        </form>
+
+        <input type="button" class="submit" value="Send Order" name="submit" onclick="sendOrder()">
+    </div>
+
+    <div class="clear"></div>
 
 </body>
 </html>

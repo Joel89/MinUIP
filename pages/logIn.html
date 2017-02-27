@@ -9,6 +9,8 @@
 
     <script src="../js/jquery.js"></script>
     <script src="../js/logInScript.js"></script>
+    <script src="../js/switchLanguages.js"></script>
+
     <title>Welcome to The Flying Dutchman</title>
     <link href="https://fonts.googleapis.com/css?family=Pontano+Sans" rel="stylesheet">
 </head>
@@ -19,8 +21,13 @@
     docLoaded(indexPageLoaded);
 </script>
 
-
 <!-- Here begins the header section. -->
+<div>
+    <!--Buttons to switch languages -->
+    <input type="image" src="../img/swedishFlag.png" name="swedishFlag" class="translate" id="sv" height="35px"; width="50px";/>
+    <input type="image" src="../img/englishFlag.JPG" name="englishFlag" class="translate" id="en" height="35px"; width="50px";/>
+</div>
+
 <div id="nav-header">
     <div class="square2">
         <h1 class="header-text">THE FLYING DUTCHMAN</h1>
@@ -32,11 +39,11 @@
 <div id="nav-main">
     <nav>
         <ul>
-            <li><a href="../index.html">START</a></li>
-            <li><a href="menu.html">MENU</a></li>
-            <li><a href="about.html">ABOUT</a></li>
-            <li><a href="events.html">EVENTS</a></li>
-            <li><a class="active" href="logIn.html">LOG IN</a></li>
+            <li><a href="../index.html"  class="lang" key="start" >START</a></li>
+            <li><a class="lang" href="menu.html" key="menu" >MENU</a></li>
+            <li><a class="lang" href="about2.html"  key="about" >ABOUT</a></li>
+            <li><a href="events.html"  class="lang" key="events" >EVENTS</a></li>
+            <li><a class="active lang" href="logIn.html" key="logIn" >LOG IN</a></li>
         </ul>
     </nav>
 </div>
@@ -47,9 +54,9 @@
     </div>
 
     <form name="login" method="post">
-        <ul>
-            <li>Username: <input class="username" type="text" name="username"></li>
-            <li>Password: <input class="password" type="password" name="password"></li>
+        <ul> <!-- class="lang" key="un"  class="lang" key="pw" -->
+            <li class="lang" key="username">Username:</li> <input class="username" type="text" name="username">
+            <li class="lang" key="password">Password:</li><input class="password" type="password" name="password">
         </ul>
 
         <input type="button" class="submit" value="Log In" name="submit" onclick="validate()">
