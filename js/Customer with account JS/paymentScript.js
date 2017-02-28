@@ -13,18 +13,20 @@ function docLoaded(fn) {
 function indexPageLoaded() {
 
     printOutTheTotalCost();
+    /* Need to call the function so every item get the language that is chosen.*/
+    language();
 }
 
 /* Function that prints out the current totalPrice and which drinks that has been ordered. */
 function printOutTheTotalCost() {
     var totalCost = localStorage.GlobalTotalCost;
-    $('#orderPaymentPage').html('Total Sum: $'+totalCost);
+    $('#totalSum').html('Total Sum: $'+totalCost);
 
     /* Need to use JSON.parse because localStorage only handling strings and not arrays.*/
     var storedNames = JSON.parse(localStorage.getItem("drinksArray"));
 
     /* Loop the storedNames array and add the name to the page.*/
-    for(i=0; i<storedNames.length; i++)
+    for(var i=0; i<storedNames.length; i++)
     {
         $('#drinksNames').prepend('<p> '+ storedNames[i]);
     }

@@ -11,7 +11,8 @@ function docLoaded(fn) {
 }
 /* Function that start the page and calls the necessary functions. */
 function indexPageLoaded() {
-
+    /* Need to call the function so every item get the language that is chosen.*/
+    language();
 }
 
 function validate() {
@@ -24,19 +25,18 @@ function getTheUserDatabase() {
         url:'http://pub.jamaica-inn.net/fpdb/api.php?username=jorass&password=jorass&action=user_get_all',
         dataType:'json',
         success:function (data) {
-            logIn(data.payload);
+            printOutTheMenu(data.payload);
         }
     });
 }
 
-
-function logIn(AllUsers) {
+function printOutTheMenu(AllUsers) {
     /* un(username) get the value from the form in the html page. */
     var un = document.login.username.value;
     var checkNotNull = "";
-    /* See below for explanation. */
+    /* See below for explanation.
     var pw = document.login.password.value;
-
+    */
     var valid = false;
 
     for(var i=0; i<AllUsers.length; i++)
@@ -44,12 +44,12 @@ function logIn(AllUsers) {
         /* The password is not correct in the Documentation, for example,
          User Name & Password is aamsta in the doc but in the database the password
          is number such as 88ab1f4dac9422a7ee3cb34eca3793b7, maybe security hashed?.
-         Therefor only the securit check with the username.
+          Therefor only the securit check with the username.
          if((un == AllUsers[i].username)  && (pw == AllUsers[i].password))
          */
 
         /* Loop the database with all the users. Need to check that the username is not null because there is
-         *  usernames in the database that have null as username. */
+        *  usernames in the database that have null as username. */
         if((un == AllUsers[i].username) && AllUsers[i].username != checkNotNull)
         {
             valid = true;
@@ -61,16 +61,18 @@ function logIn(AllUsers) {
     /* Checks if the user credentials is 3, in that case the user is a customer. */
     if (valid && (AllUsers[i].credentials==3))
     {
-        alert("Login was successful");
-        window.location = "../Customer with account pages/loginSuccess.html";
+        alert("Login as user was successful");
+        /*Take the path from the logIn.html file. */
+        window.location = "../../html/Customer with account pages/loginSuccess.html";
         return false;
     }
 
     /* Checks if the user credentials is 0, in that case the user is a admin. */
     else if (valid && (AllUsers[i].credentials==0))
     {
-        alert("Login was successful");
-        window.location = "../Admin pages/AdminLogIn.html";
+        alert("Login as admin was successful");
+        /*Take the path from the logIn.html file. */
+        window.location = "../../html/Admin pages/AdminLogIn.html";
         return false;
     }
     else

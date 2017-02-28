@@ -205,5 +205,15 @@ a:visited {
     color: black;
 }
 
+@media (max-width: 700px){
+    #nav-main nav ul {
+        font-size: 15px;
+    }
+
+    .square2{
+        font-size: 20px;
+    }
+}
+
 
 

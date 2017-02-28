@@ -14,9 +14,12 @@ function docLoaded(fn) {
 }
 /* Function that start the page and calls the neccessary functions. */
 function indexPageLoaded() {
-    language();
+
     getTheInventoryDatabase();
+    /* Need to call the function so every item get the language that is chosen.*/
+    language();
 }
+
 
 /* Function that retrieves all alcohol products from the database. The function use
  the admin name ervtod to get access to the database and the function inventory_get to
@@ -42,7 +45,7 @@ function getTheInventoryDatabase() {
 function printOutTheMenu(beers)  {
     /*creates dynamically so many divs as the number of elements in beers. */
 
-    for (var i = 0; i<beers.length; i++) {
+    for (i = 0; i<beers.length; i++) {
 
         var newDiv = document.createElement("div");
 
@@ -51,16 +54,6 @@ function printOutTheMenu(beers)  {
 
         /*Create a paragraph element to hold the data from the database.*/
         var paragraph = document.createElement("p");
-
-        /* Give the paragraph a class so we can switch languages. */
-        paragraph.className = "lang";
-
-        /*
-        var img = document.createElement("img");
-        img.setAttribute("src", "../css/Drag_and_Drop.png");
-        img.setAttribute("width", "50");
-        img.setAttribute("height", "50");
-        */
 
         /* Create some breaking point so every sentence comes into a new row. Can't use a element
          * more than once therefore the the need of many break. */
@@ -74,7 +67,7 @@ function printOutTheMenu(beers)  {
         {
             /* Get the data from the database and create element from them.*/
             var nodeName = document.createTextNode(beers[i].namn);
-            var pub_price = document.createTextNode("Price: $" + beers[i].pub_price);
+            var pub_price = document.createTextNode("$" + beers[i].pub_price);
 
             /* Set the data to the paragraph node. Using the break point to get the data on a new row.*/
             paragraph.appendChild(nodeName);
@@ -101,19 +94,17 @@ function printOutTheMenu(beers)  {
             {
                 drop:function (ev,ui) {
                     /* First section: Create a clone of the item that has been dropped.*/
+
                     ev.preventDefault();
                     var droppedItem = $(ui.draggable).clone();
                     $(this).append(droppedItem);
 
-
                     /* Second section: Save the data so we can print out the total price.*/
-
                     var context1 = $(droppedItem).find("p:eq(0)").text();
 
-                    /*console.log("Test with .text() : " + context1);
+                    console.log("Test with .text() : " + context1);
                     var context2 = $(droppedItem).find('p:eq(0)').html();
-                    console.log("Test with .html() : " + context2); */
-
+                    console.log("Test with .html() : " + context2);
                     var name = context1.split('Price')[0];
                     console.log("Name:" + name);
                     nameDrinksArray(name);
@@ -144,7 +135,7 @@ function printOutTheMenu(beers)  {
 var nameArray = [];
 /* Function that saves all the drinks names that is ordered.*/
 function nameDrinksArray(name) {
-    /*Push is adding a element to the array. */
+    /*Pus is adding a element to the array. */
     nameArray.push(name);
     /* Need to use JSON.stringify because localStorage only handling string and not arrays.*/
     localStorage.setItem("drinksArray", JSON.stringify(nameArray));}
@@ -156,15 +147,35 @@ function nameDrinksArray(name) {
 var totalCost = 0;
 var totalDrinks = 0;
 
+/*This variable is used in the switchLanguages.js file to change language in the orderList box.
+* See further down for more explanations. */
+var counter=0;
+localStorage.setItem("GlobalCounter", counter);
+
 /* Function that counting the total price and print out the total number to the page.  */
 function addProduct(price){
+
     totalCost += price;
     totalDrinks += 1;
-    /*This is for the menu page. */
-    $('#orderlistBox .totalCost').html('Total Sum: $'+totalCost);
-    $('#orderlistBox .totalDrinks').html('Amount of drinks: '+totalDrinks);
 
-    storeData(totalCost);
+    /*When add one more number to counter, so we in  switchLanguages.js know if there is draggable element in
+    the dropzone or not. If there is no draggable element in the dropable zon we know that the the total sum and amount of
+     drinks are zero.*/
+    counter=+1;
+
+    var lang = localStorage.languageChosen;
+    if(lang=='en')
+    {
+        $('#orderlistBox .totalCost').html('Total Sum: $'+totalCost);
+        $('#orderlistBox .totalDrinks').html('Amount of drinks: '+totalDrinks);
+    }
+    else if(lang=='sv')
+    {
+        $('#orderlistBox .totalCost').html('Totalasumma: $'+totalCost);
+        $('#orderlistBox .totalDrinks').html('Antal drycker: '+totalDrinks);
+    }
+
+    storeData(totalCost,totalDrinks,counter );
 }
 
 /* -------------------Local storage---------------------------------------------------------------------------------*/
@@ -172,6 +183,8 @@ function addProduct(price){
 If you refresh the page you lost the data on a session.storage.
  */
 
-function storeData(totalCost) {
+function storeData(totalCost,totalDrinks) {
     localStorage.setItem("GlobalTotalCost", totalCost);
+    localStorage.setItem("GlobalTotalDrinks", totalDrinks);
+    localStorage.setItem("GlobalCounter", counter);
 }

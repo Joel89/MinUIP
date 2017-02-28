@@ -3,7 +3,7 @@ body {
 }
 
 
-#startbox h1, .UsernameText{
+#startbox h1, .UsernameText,#welcomeText span{
     text-align: center;
     color:white;
     font-size:38px;

@@ -56,7 +56,18 @@ var arrLang = {
 
         /*--------- logInPage -----------*/
         'username':'Username:',
-        'password':'Password:'
+        'password':'Password:',
+        /* ---------------------------*/
+
+
+        /*--------- MyProfilePage VIP Customer -----------*/
+        'MyProfile':'MY PROFILE',
+        'history': 'HISTORY',
+        'logOut':'LOG OUT',
+        'accountInformation': 'Account Information',
+        'YourAccountInformation': 'Your account information:',
+        'close': 'Close',
+        'balanceInformation':'Economic overview',
         /* ---------------------------*/
     },
     'sv' : {
@@ -103,7 +114,19 @@ var arrLang = {
 
         /*--------- logInPage -----------*/
         'username':'Användarnamn:',
-        'password':'Lösenord:'
+        'password':'Lösenord:',
+        /* ---------------------------*/
+
+        /*--------- MyProfilePage VIP Customer -----------*/
+        'MyProfile':'MIN PROFIL',
+        'menuCustomer': 'MENU',
+        'history': 'HISTORIK',
+        'logOut':'LOGGA UT',
+        'accountInformation': 'Konto Uppgifter',
+        'YourAccountInformation': 'Dina kontouppgifter:',
+        'close': 'Stäng',
+        'balanceInformation':'Ekonomiskt översikt'
+
         /* ---------------------------*/
     }
 };
