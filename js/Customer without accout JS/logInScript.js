@@ -33,6 +33,9 @@ function getTheUserDatabase() {
 function printOutTheMenu(AllUsers) {
     /* un(username) get the value from the form in the html page. */
     var un = document.login.username.value;
+    /* psw(password) get the value from the form in the html page and convert it with a hash function. */
+    var psw = md5(document.login.password.value);
+
     var checkNotNull = "";
     /* See below for explanation.
     var pw = document.login.password.value;
@@ -50,7 +53,7 @@ function printOutTheMenu(AllUsers) {
 
         /* Loop the database with all the users. Need to check that the username is not null because there is
         *  usernames in the database that have null as username. */
-        if((un == AllUsers[i].username) && AllUsers[i].username != checkNotNull)
+        if((un == AllUsers[i].username) && (psw== AllUsers[i].password) && (AllUsers[i].username != checkNotNull))
         {
             valid = true;
             /* Sett the user name to a global variable. So we can use the other functions to the database. */
