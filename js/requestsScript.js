@@ -72,12 +72,13 @@ var orders = [
             document.addEventListener('DOMContentLoaded', fn);
         }
     }
-function indexPageLoaded() {
 
-    requestsPageLoaded();
-    /* Need to call the function so every item get the language that is chosen.*/
-    language();
-}
+    function startAll() {
+
+        /* Need to call the function so every item get the language that is chosen.*/
+        language();
+        requestsPageLoaded();
+    }
 
         /*function requestsPageLoaded() {
             var chks = document.getElementsByClassName('chk');
@@ -119,6 +120,7 @@ function indexPageLoaded() {
             }
         }*/
 
+
         var storedNames = JSON.parse(localStorage.getItem("drinksArray"));
 
         function requestsPageLoaded() {
@@ -156,11 +158,11 @@ function indexPageLoaded() {
     
                     var checked = $('.chk').find(':checked').length;
                     if (!checked)//if no checkbox is checked
-                        alert("Select beers!");
+                        alert("Select drinks!");
                     else{
 
                         setServedDrinks();
-                        alert("Beer(s) served!");
+                        alert("Drink(s) served!");
                     }
                 };
                 //undo order

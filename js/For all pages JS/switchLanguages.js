@@ -95,6 +95,16 @@ var arrLang = {
         'amount':'Amount:',
         'price':'Price:',
         /* ---------------------------*/
+
+        /*--------- requestPage -----------*/
+        'serve': 'Serve selected drinks',
+        'undoServe':'Undo order for this Table',
+        'clean':'Clean Table',
+        /* ---------------------------*/
+
+        /*--------- paymentPage -----------
+        'order': 'ORDER', */
+        /* ---------------------------*/
     },
     'sv' : {
         /*--------- Header -----------*/
@@ -181,6 +191,16 @@ var arrLang = {
         'amount':'Antal:',
         'price':'Pris:',
         /* ---------------------------*/
+
+        /*--------- requestPage -----------*/
+        'serve': 'Servera drycker',
+        'undoServe':'Ta bort beställning',
+        'clean':'Rensa bordet',
+        /* ---------------------------*/
+
+        /*--------- paymentPage -----------
+        'order': 'BESTÄLLNING', */
+        /* ---------------------------*/
     }
 };
 
@@ -192,9 +212,10 @@ function changeInsideJS(language) {
         $("#btnLogIn").prop('value', 'LOGGA IN');
         /*---------------------------------------------------------------------------------*/
 
-        /*------------------------------- At payment page* --------------------*/
+        /*------------------------------- At payment page* --------------------
         var totalCost = localStorage.GlobalTotalCost;
         $('#totalSum').html('Totalsumma: $'+totalCost);
+        */
         /*---------------------------------------------------------------------------------*/
 
         /*----------------------- At the menu page----------------------------------*/
@@ -252,9 +273,10 @@ function changeInsideJS(language) {
         $("#btnLogIn").prop('value', 'LOG IN');
         /*---------------------------------------------------------------------------------*/
 
-        /*------------ At payment page ---------------------------------------------------*/
+        /*------------ At payment page ---------------------------------------------------
         var totalCost = localStorage.GlobalTotalCost;
         $('#totalSum').html('Total Sum: $'+totalCost);
+        */
         /*---------------------------------------------------------------------------------*/
 
         /*----------------------- At the menu page----------------------------------*/

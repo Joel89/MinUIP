@@ -45,7 +45,7 @@ function getTheInventoryDatabase() {
 function printOutTheMenu(beers)  {
     /*creates dynamically so many divs as the number of elements in beers. */
 
-    for (i = 0; i<beers.length; i++) {
+    for (var i = 0; i<beers.length; i++) {
 
         var newDiv = document.createElement("div");
 

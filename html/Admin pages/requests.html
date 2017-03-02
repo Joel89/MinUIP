@@ -3,29 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <!--<link rel="stylesheet" href="../css/menuStyle.css">-->
-    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/LoggedInStyle.css">
     <link rel="stylesheet" href="../../css/requestsTable.css">
 
     <script src="../../js/For%20all%20pages%20JS/jquery-3.1.1.js"></script>
-    <script src="../../js/For%20all%20pages%20JS/switchLanguages.js"></script>
     <script src="../../js/menuScript.js"></script>
     <script src="../../js/requestsScript.js"></script>
+    <script src="../../js/For%20all%20pages%20JS/switchLanguages.js"></script>
+
+    <script>docLoaded(startAll);</script>
     <title>Welcome to The Flying Dutchman</title>
 </head>
 <body>
 
-<script>
-    docLoaded(indexPageLoaded);
-</script>
 
 <!-- Here begins the header section. -->
-<div>
-    <!--Buttons to switch languages -->
-    <input type="image" src="../../img/swedishFlag.png" name="swedishFlag" class="translate" id="sv" height="35px"; width="50px";/>
-    <input type="image" src="../../img/englishFlag.JPG" name="englishFlag" class="translate" id="en" height="35px"; width="50px";/>
-</div>
-
 <div id="nav-header">
+
+    <!--Buttons to switch languages -->
+    <div style="background-color: transparent">
+        <input type="image" src="../../img/swedishFlag.png" name="swedishFlag" class="translate" id="sv" height="35px"; width="50px";/>
+        <input type="image" src="../../img/englishFlag.JPG" name="englishFlag" class="translate" id="en" height="35px"; width="50px";/>
+    </div>
+
     <div class="square2">
         <h1 class="header-text">THE FLYING DUTCHMAN</h1>
     </div>
@@ -51,9 +51,9 @@
             </div>
        <div class="number">
         Nr. 1 <br/>
-         <button type="button" class="orderButton serv" onclick="">Serve selected drinks</button>
-         <button type="button" class="orderButton undo" onclick="">Undo order for this Table</button>
-         <button type="button" class="orderButton clean" onclick="">Clean Table</button>            
+           <button type="button" class="orderButton serv lang" onclick="" key="serve">Serve selected drinks</button>
+           <button type="button" class="orderButton undo lang" onclick="" key="undoServe">Undo order for this Table</button>
+           <button type="button" class="orderButton clean lang" onclick="" key="clean">Clean Table</button>
         </div>
     </div>
 
@@ -64,9 +64,9 @@
             </div>
         <div class="number">
         Nr. 2 <br/>
-         <button type="button" class="orderButton serv" onclick="">Serve selected drinks</button>
-         <button type="button" class="orderButton undo" onclick="">Undo order for this Table</button>
-         <button type="button" class="orderButton clean" onclick="">Clean Table</button>            
+         <button type="button" class="orderButton serv lang" onclick="" key="serve">Serve selected drinks</button>
+         <button type="button" class="orderButton undo lang" onclick="" key="undoServe">Undo order for this Table</button>
+         <button type="button" class="orderButton clean lang" onclick="" key="clean">Clean Table</button>
         </div>
     </div>
 
@@ -76,9 +76,9 @@
         </div>
        <div class="number">
         Nr. 3 <br/>
-         <button type="button" class="orderButton serv" onclick="">Serve selected drinks</button>
-         <button type="button" class="orderButton undo" onclick="">Undo order for this Table</button>
-         <button type="button" class="orderButton clean" onclick="">Clean Table</button>            
+           <button type="button" class="orderButton serv lang" onclick="" key="serve">Serve selected drinks</button>
+           <button type="button" class="orderButton undo lang" onclick="" key="undoServe">Undo order for this Table</button>
+           <button type="button" class="orderButton clean lang" onclick="" key="clean">Clean Table</button>
         </div>
     </div>
 
@@ -88,9 +88,9 @@
         </div>
        <div class="number">
         Nr. 4 <br/>
-         <button type="button" class="orderButton serv" onclick="">Serve selected drinks</button>
-         <button type="button" class="orderButton undo" onclick="">Undo order for this Table</button>
-         <button type="button" class="orderButton clean" onclick="">Clean Table</button>            
+           <button type="button" class="orderButton serv lang" onclick="" key="serve">Serve selected drinks</button>
+           <button type="button" class="orderButton undo lang" onclick="" key="undoServe">Undo order for this Table</button>
+           <button type="button" class="orderButton clean lang" onclick="" key="clean">Clean Table</button>
         </div>
     </div>
 
@@ -100,9 +100,9 @@
         </div>
        <div class="number">
         Nr. 5 <br/>
-         <button type="button" class="orderButton serv" onclick="">Serve selected drinks</button>
-         <button type="button" class="orderButton undo" onclick="">Undo order for this Table</button>
-         <button type="button" class="orderButton clean" onclick="">Clean Table</button>            
+           <button type="button" class="orderButton serv lang" onclick="" key="serve">Serve selected drinks</button>
+           <button type="button" class="orderButton undo lang" onclick="" key="undoServe">Undo order for this Table</button>
+           <button type="button" class="orderButton clean lang" onclick="" key="clean">Clean Table</button>
         </div>
     </div>
 
@@ -112,9 +112,9 @@
         </div>
        <div class="number">
         Nr. 6 <br/>
-         <button type="button" class="orderButton serv" onclick="">Serve selected drinks</button>
-         <button type="button" class="orderButton undo" onclick="">Undo order for this Table</button>
-         <button type="button" class="orderButton clean" onclick="">Clean Table</button>            
+           <button type="button" class="orderButton serv lang" onclick="" key="serve">Serve selected drinks</button>
+           <button type="button" class="orderButton undo lang" onclick="" key="undoServe">Undo order for this Table</button>
+           <button type="button" class="orderButton clean lang" onclick="" key="clean">Clean Table</button>
         </div>
     </div>
 </div>
