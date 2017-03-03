@@ -99,6 +99,11 @@ function printOutTheMenu(beers)  {
                     var droppedItem = $(ui.draggable).clone();
                     $(this).append(droppedItem);
 
+                    /* Example on what you could do if you did the droppable function for your own.
+                    droppedItem.style.cursor = "default";
+                    droppedItem.dropEffect = "move";
+                    */
+
                     /* Second section: Save the data so we can print out the total price.*/
                     var context1 = $(droppedItem).find("p:eq(0)").text();
 

@@ -1,7 +1,9 @@
 #parentDiv {
     width: 100%;
+    text-align: center;
 }
 
 .dynamicallyDivClass{
     width: 20%;
+    cursor: default;
 }
