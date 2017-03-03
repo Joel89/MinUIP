@@ -249,7 +249,7 @@ function changeInsideJS(language) {
             totalCost = 0;
             totalDrinks = 0;
         }
-        $('#orderlistBox .totalCost').html('Totalsumma: $'+totalCost);
+        $('#orderlistBox .totalCost').html('Totalsumma:'+totalCost + ' kr');
         $('#orderlistBox .totalDrinks').html('Antal drycker: '+totalDrinks);
         /*---------------------------------------------------------------------------------*/
 
@@ -313,7 +313,7 @@ function changeInsideJS(language) {
             totalCost = 0;
             totalDrinks = 0;
         }
-        $('#orderlistBox .totalCost').html('Total Sum: $'+totalCost);
+        $('#orderlistBox .totalCost').html('Total Sum:'+totalCost+' kr');
         $('#orderlistBox .totalDrinks').html('Amount of drinks: '+totalDrinks);
         /*---------------------------------------------------------------------------------*/
 

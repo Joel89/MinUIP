@@ -38,6 +38,7 @@ function getTheInventoryDatabase() {
     });
 }
 
+var ordersArray = [];
 /*
  The function is getting the inventory database and adding it to the page.
  Parameter: The inventory database which is in JSON format.
@@ -66,8 +67,8 @@ function printOutTheMenu(beers)  {
         if(beers[i].namn != "" && beers[i].count > 0)
         {
             /* Get the data from the database and create element from them.*/
-            var nodeName = document.createTextNode(beers[i].namn);
-            var pub_price = document.createTextNode("$" + beers[i].pub_price);
+            var nodeName = document.createTextNode(beers[i].namn + ",");
+            var pub_price = document.createTextNode( beers[i].pub_price +" kr");
 
             /* Set the data to the paragraph node. Using the break point to get the data on a new row.*/
             paragraph.appendChild(nodeName);
@@ -99,6 +100,9 @@ function printOutTheMenu(beers)  {
                     var droppedItem = $(ui.draggable).clone();
                     $(this).append(droppedItem);
 
+                    //UNDO-REDO
+                    ordersArray.push(droppedItem);
+
                     /* Example on what you could do if you did the droppable function for your own.
                     droppedItem.style.cursor = "default";
                     droppedItem.dropEffect = "move";
@@ -110,14 +114,16 @@ function printOutTheMenu(beers)  {
                     console.log("Test with .text() : " + context1);
                     var context2 = $(droppedItem).find('p:eq(0)').html();
                     console.log("Test with .html() : " + context2);
-                    var name = context1.split('Price')[0];
+                    var name = context1.split(',')[0];
+                    var price = context1.split(',')[1];
                     console.log("Name:" + name);
+                    console.log("Pris:" + price);
                     nameDrinksArray(name);
                     /* Calls the function with the price. Need to split the string because it contents
                      all the information from the div. So the .split function divide the string after the ":" and
                      send the string to the right of the ":".
                      */
-                    addProduct(parseFloat(context1.split('$')[1]));
+                    addProduct(parseFloat(context1.split(',')[1]));
                 },
                 /* When the drag element is activate the droppable zone changes. Code find at;
                  * http://www.tutorialspark.com/jqueryUI/jQuery_UI_Droppable_Interaction.php
@@ -137,6 +143,17 @@ function printOutTheMenu(beers)  {
     }
 }
 
+var redoAux;
+
+function undo() {
+    redoAux = ordersArray.pop();
+    redoAux.remove();
+    console.log(ordersArray);
+}
+
+function redo() {
+    $("#orderlistBox").append(redoAux);
+}
 var nameArray = [];
 /* Function that saves all the drinks names that is ordered.*/
 function nameDrinksArray(name) {
@@ -171,12 +188,12 @@ function addProduct(price){
     var lang = localStorage.languageChosen;
     if(lang=='en')
     {
-        $('#orderlistBox .totalCost').html('Total Sum: $'+totalCost);
+        $('#orderlistBox .totalCost').html('Total Sum:'+totalCost+ 'kr');
         $('#orderlistBox .totalDrinks').html('Amount of drinks: '+totalDrinks);
     }
     else if(lang=='sv')
     {
-        $('#orderlistBox .totalCost').html('Totalasumma: $'+totalCost);
+        $('#orderlistBox .totalCost').html('Totalasumma:'+totalCost + 'kr');
         $('#orderlistBox .totalDrinks').html('Antal drycker: '+totalDrinks);
     }
 

@@ -17,7 +17,7 @@ function indexPageLoaded() {
 /* Function that prints out the current totalPrice and which drinks that has been ordered. */
 function printOutTheTotalCost() {
     var totalCost = localStorage.GlobalTotalCost;
-    $('#orderPaymentPage').html('Total Sum: $'+totalCost);
+    $('#orderPaymentPage').html('Total Sum: '+totalCost+ ' kr' );
 
     /* Need to use JSON.parse because localStorage only handling strings and not arrays.*/
     var storedNames = JSON.parse(localStorage.getItem("drinksArray"));
