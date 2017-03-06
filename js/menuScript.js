@@ -24,7 +24,7 @@ function indexPageLoaded() {
 /* Function that retrieves all alcohol products from the database. The function use
  the admin name ervtod to get access to the database and the function inventory_get to
  retrieve the database. getTheInventoryDatabase() calls another function with the database data
- as paramter which is in JSON Format.
+ as parameter which is in JSON Format.
  */
 
 function getTheInventoryDatabase() {
